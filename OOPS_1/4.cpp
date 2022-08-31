@@ -4,8 +4,8 @@ Write a function take three numbers from user then output the minimum number.
 
 #include <iostream>
 using namespace std;
-int main()
-{
+
+void smallesnumber(){
     int num1, num2, num3;
     cout << "Enter number 1 :- ";
     cin >> num1;
@@ -26,5 +26,10 @@ int main()
     {
         cout << "The Smallest Number is :" << num3;
     }
+}
+
+int main()
+{
+    smallesnumber();
     return 0;
 }

@@ -6,8 +6,8 @@ Sample String: "1234abcd" Expected Output: "dcba4321
 #include <iostream>
 #include <string>
 using namespace std;
-int main()
-{
+
+void reverse(){
     string str;
     int len, i;
     cout << "Enter The String To Be Reverse : ";
@@ -17,5 +17,9 @@ int main()
     {
         cout << str[i];
     }
+}
+int main()
+{
+    reverse();
     return 0;
 }
