@@ -1,4 +1,5 @@
-/* */
+/*4. Define a class named Circle which can be constructed by a radius. The Circle class has two
+methods for computing perimeter and area, respectively. */
 
 
 #include <iostream>

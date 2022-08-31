@@ -1,54 +1,73 @@
-/*    */
+/* 3. Write a C++ program to define a class Date that holds day, month and year as data
+members. Also write necessary member methods to
+a) Read a date
+b) Print a date in different formats
+c) Find the date exactly one week after the given date. e.g. If the given date is 30-10-
+2013, then the resultant date is 6-11-2013.   */
 
 #include <iostream>
 using namespace std;
-class date{
-    private:
-    int day,month,year;
-    public:
-    void get(){
-        cout<<"Enter the date :";
-        cin>>day>>month>>year;
+class date
+{
+private:
+    int day, month, year;
+
+public:
+    void get()
+    {
+        cout << "Enter the date :";
+        cin >> day >> month >> year;
     }
-    void display(){
-        cout<<"date in dd/mm/yyyy format "<<day<<"/"<<month<<"/"<<year<<endl;
-        cout<<"date in mm/dd/yyyy format "<<month<<"/"<<day<<"/"<<year<<endl;
-        cout<<"date in yyyy/dd/mm format "<<year<<"/"<<day<<"/"<<month<<endl;
+    void display()
+    {
+        cout << "date in dd/mm/yyyy format " << day << "/" << month << "/" << year << endl;
+        cout << "date in mm/dd/yyyy format " << month << "/" << day << "/" << year << endl;
+        cout << "date in yyyy/dd/mm format " << year << "/" << day << "/" << month << endl;
     }
-    
-    void week(){
-        int i;
-        for(i=0;i<7;i++){
-            if(month==1||month==3||month==5||month==7||month==8||month==10&&day==31){
-                day=1;
+    void weeklater()
+    {
+        if (month == 1, 3, 5, 7, 8, 10, 12)
+        {
+            // all 31 days - months
+            if ((day + 7) > 31)
+            {
+                if (month == 12)
+                {
+                    month = 1;
+                    year++;
+                }
                 month++;
+                day = (day + 7) - 31;
             }
-            else if(month==4||month==6||month==9||month==11&&day==30){
-                day=1;
-                month++;
+            else
+            {
+                day = day + 7;
             }
-            else if(month==2&&day==28){
-                day=1;
-                month++;
-            }
-            if(month==12&&day==31){
-                month=1;
-                day=1;
-                year++;
-            }
-            else day++;
         }
-        cout<<"the date after a week is "<<day<<"/"<<month<<"/"<<year<<endl;
+        else
+        {
+            // all 30 days months
+            if ((day + 7) > 30)
+            {
+                month++;
+                day = (day + 7) - 30;
+            }
+            else
+            {
+                day = day + 7;
+            }
+        }
+        cout <<"One Week After Date : "<< day << "/" << month << "/" << year<<endl;
     }
 };
 int main()
 {
-    date a1,a2;
+    date a1, a2;
     a1.get();
     a1.display();
-    a1.week();
+    a1.weeklater();
     a2.get();
     a2.display();
-    a2.week();
+    a2.weeklater();
     return 0;
 }
